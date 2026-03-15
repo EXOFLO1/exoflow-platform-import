@@ -1466,7 +1466,21 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      calculate_sla_deadline: { Args: { priority?: string }; Returns: string }
+      check_and_increment_ai_usage: {
+        Args: { p_company_id: string }
+        Returns: Json
+      }
+      check_user_limit: { Args: { p_company_id: string }; Returns: Json }
+      generate_ticket_number: { Args: { prefix?: string }; Returns: string }
+      get_user_company_id: { Args: { _user_id?: string }; Returns: string }
+      has_company_role: {
+        Args: { _role: string; _user_id: string }
+        Returns: boolean
+      }
+      is_super_admin: { Args: { _user_id: string }; Returns: boolean }
+      reset_daily_ai_quotas: { Args: never; Returns: undefined }
+      reset_monthly_ai_quotas: { Args: never; Returns: undefined }
     }
     Enums: {
       app_role: "owner" | "admin" | "agent"
